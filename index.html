@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>❤️ Fresh</title>
+  <style>
+    :root{
+      --overlay: rgba(0,0,0,0.35);
+      --accent: #10b981; /* emerald */
+    }
+
+    html,body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #fff;
+    }
+
+    /* full-screen background image */
+    .bg {
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1920&auto=format&fit=crop&s=placeholder');
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05) contrast(1.02);
+      z-index: -2;
+    }
+
+    /* dim overlay for legibility */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45));
+      z-index: -1;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .card {
+      max-width: 720px;
+      width: 100%;
+      padding: 3.2rem 2rem;
+      border-radius: 18px;
+      backdrop-filter: blur(6px) saturate(1.1);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      box-shadow: 0 10px 30px rgba(2,6,23,0.45), inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      margin: 0 0 0.6rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    p.lead {
+      margin: 0 0 1.8rem;
+      color: rgba(255,255,255,0.88);
+      font-size: 1.05rem;
+      opacity: 0.95;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(180deg, var(--accent), #059669);
+      color: white;
+      padding: 0.95rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(16,185,129,0.18);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .btn:active { transform: translateY(1px) scale(.998); }
+    .btn:hover  { box-shadow: 0 14px 32px rgba(16,185,129,0.24); }
+
+    .small {
+      margin-top: 1rem;
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* responsive spacing when narrow */
+    @media (max-width:480px){
+      .card { padding: 2rem 1.2rem; border-radius: 12px; }
+      .small { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="overlay" aria-hidden="true"></div>
+
+  <main class="container" role="main">
+    <section class="card" aria-labelledby="page-title">
+      <h1 id="page-title">Thank you!</h1>
+      <p class="lead">If you like what we're doing, leave a small tip to help us grow the greens.</p>
+
+      <!--
+        Replace the href below with your Stripe Payment Link.
+        Example (test): https://buy.stripe.com/test_XXXXXXXXXXXX
+      -->
+      <a
+        class="btn"
+        id="tip-button"
+        href="https://buy.stripe.com/9B6dR3e7X25G5YJ8174wM00"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Give us a tip — secure checkout hosted by Stripe"
+      >
+        Give us a tip
+      </a>
+
+      <div class="small" aria-hidden="false">
+        Secure checkout hosted by Stripe
+      </div>
+    </section>
+  </main>
+
+  <!-- No JS required. If you want tracking or analytics, add scripts here. -->
+</body>
+</html>
